@@ -1,0 +1,282 @@
+§
+    †•gå#  ã                   ó"  — d dl Z d dlZd dlZd dlZd dlZd dlmZm Z  d dlmZ d dl	m
+Z
+ d dl
+mZm
+Z
+mZmZmZmZmZmZ d dlmZ d d lmZmZmZmZmZmZmZmZmZm Z m!Z!m"Z"m#Z#m$Z$ d dl%m&Z& d d	l	m'Z' d d
+l(m)Z) d d
+l*m+Z+ d dl,m-Z-  G d
+„ de¦  «        Z.dS )é    N)ÚListÚDict)Údatetime)Ú
+create_pool)ÚAllowedMentionsÚ MessageÚCustomActivityÚ IntentsÚEmbedÚGuildÚ	ForbiddenÚMember)Ú	format_dt)ÚAutoShardedBotÚwhen_mentioned_orÚExtensionFailedÚCommandErrorÚCheckFailureÚCommandNotFoundÚNotOwnerÚCommandOnCooldownÚChannelNotFoundÚRoleNotFoundÚThreadNotFoundÚUserNotFoundÚMissingPermissionsÚMinimalHelpCommand)Úlogger)ÚPool)Ú Context)ÚBrowserHandler)Ú
+defaultdictc                   óN  ‡ — e Zd ZU eed<   eed<   d ˆ fd„Ze defd„¦   «         Z	e d „ ¦   «         Z
+e de
+fd„¦   «         Ze defd	„¦   «         Z
+d
+edefd
+„Zd!d
+e
+fd„Zdefd„Zˆ fd„Zd„ Zdede
+fd„Zedœd
+efˆ fd„Zdede
+fd„Zdededdfd„Zd„ Zdefd„Zd
+eddfd„Zd d„Z ˆ xZ!S )"ÚBotÚpoolÚbootÚreturnNc                 óv  •— t          ¦   «                              ddt          j        ¦   «         t	          ddgddœ¬¦  «        t
+          dddd¬ ¦  «        t
+          d¬	¦  «        d
+g¬
+¦   «          t          ¦   «         | _        t          j	        ¦   «         | _
+        t          t          ¦  «        | _
+        d| _        d S )
+Nú,TFÚh)Ú aliasesÚhidden)Ú
+verify_checksÚ
+command_attrs)ÚeveryoneÚusersÚrolesÚreplied_userzundergoing development)Únamel   ¤ 0ìsG
+ ) Úcommand_prefixÚcase_insensitiveÚ intentsÚhelp_commandÚallowed_mentionsÚactivityÚ	owner_idsé   )ÚsuperÚ__init__r
+   Úallr   r    r	   r!   Úbrowser_handlerÚtimeÚ _uptimer"   ÚlistÚ
+message_cacheÚcache_expiry_seconds©ÚselfÚ	__class__s    €ú"C:\Users\pera\bleed\base\zorex.pyr=   zBot.__init__3   sÉ   ø€ İ
+‰ Œ ×ÒØØ!İ”K‘M”Mİ+Ø#à #˜uØ"ğğ ğñ ô õ -Ø d°%Àdğñ ô õ $Ğ)AĞBÑBÔBØ*Ğ+ğ 	ñ 	
+ô 	
+ğ 	
+õ"  .Ñ/Ô/ˆÔİ”y‘{”{ˆŒİ(­Ñ.Ô.ˆÔØ$&ˆÔ!Ğ!Ğ!ó    c                 ó0   — t          | j        dz  ¦  «        S )Niè  )ÚroundÚ latency©rF   s    rH   ÚpingzBot.pingJ   s   € åT”\ DÑ(Ñ)Ô)Ğ)rI   c                 ó.   — t          | j        d¬¦  «        S )NÚR)Ústyle)r   r&   rM   s    rH   Úbootedz
+Bot.bootedN   s   € å˜œ¨#Ğ.Ñ.Ô.Ğ.rI   c                 ó6   — |                       | j        ¦  «        S ©N)Ú
+humanize_timerA   rM   s    rH   Úuptimez
+Bot.uptimeR   s   € à×!Ò! $¤,Ñ/Ô/Ğ/rI   c                  ó’   — t          d„ d„ t          j        d¦  «                             d¦  «        D ¦   «         D ¦   «         ¦  «        S )Nc                  óv   — g | ]6}t          |                     d ¦  «                             ¦   «         ¦  «        ‘Œ7S )Úr)ÚlenÚopenÚ	readlines©Ú.0Úfs     rH   ú
+<listcomp>z!Bot.linecount.<locals>.<listcomp>Y   sF   € ğ  
+ğ  
+ğ  
+àõ A—F’F˜3‘K”K×)Ò)Ñ+Ô+Ñ,Ô,ğ 
+ğ  
+ğ  
+rI   c                 ó:   — g | ]}|                      ¦   «         ¯|‘ŒS © )Ú is_filer]   s     rH   r`   z!Bot.linecount.<locals>.<listcomp>[   s6   € ğ ğ ğ àØ—y’y‘{”{ğ Øğğ ğ rI   z/root/bleed/z **/*.py)ÚsumÚ pathlibÚPathÚglobrM   s    rH   Ú	linecountz
+Bot.linecountV   sa   € åğ 
+ğ  
+ğğ å$œ\¨.Ñ9Ô9×>Ò>¸yÑIÔIğñ ô ğ 
+ñ  
+ô  
+ñ	
+ô 	
+ğ 		
+rI   Ú messagec              ƒ   óz   K  — |j         €d S | j                             d|j         j        ¦  «        ƒ d {V —†pd}||fS )Nz-SELECT prefix FROM prefix WHERE guild_id = $1r)   )Úguildr%   ÚfetchvalÚid)rF   ri   Úguild_prefixs      rH   Ú
+get_prefixzBot.get_prefixc   sp   è è € Ø
+Œ=ğ 	ØˆFğ ”)×$Ò$Ø?ÀÄÔAQñô ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+ğ ğ	 	ğ ˜lĞ+Ğ+rI   ÚcogsÚ	directoryc              ƒ   ó¦  K  — t          j         |› dd¬¦  «        D ]´}|                     dd¦  «                             dd¦  «                             d d¦  «        d	d
+…         }	 |                      |¦  «        ƒ d	{V —† t           j        d
+|› ¦  «         Œ|# t
+          $ r t           j        d|› ¦  «         Y ŒŸt          $ r
+}Y d	}~Œ­d	}~ww xY wd	S )
+zÃ
+        Recursively load all modules in the directory selected.
+
+        Args:
+            directory (str): This is the directory meant to contain all modules, defaults to 'extensions'.
+        z/**/*.pyT)Ú	recursiveú/ú.ú\z	.__init__Ú NéıÿÿÿzLoaded extension: zExtension failed to load: )rg   Ú replaceÚload_extensionr   Úinfor   Ú warningÚ	Exception)rF   rq   ÚmoduleÚ
+module_pathÚes        rH   Úload_moduleszBot.load_modulesp   s  è è € õ ”i 9Ğ 6Ğ 6Ğ 6À$ĞGÑGÔGğ 	ğ 	ˆFà—’˜s CÑ(Ô(ß’˜˜sÑ#Ô#ß’˜ bÑ)Ô)¨#¨2¨#ô/ğ 
+ğ
+
+Ø×)Ò)¨+Ñ6Ô6Ğ6Ğ6Ğ6Ğ6Ğ6Ğ6Ğ6İ”
+Ğ>°Ğ>Ğ>Ñ?Ô?Ğ?Ğ?øİ"ğ 
+Fğ 
+Fğ 
+Fİ”ĞD¸FĞDĞDÑEÔEĞEĞEĞEİğ 
+ğ 
+ğ 
+Øøøøøğ
+øøøğ	ğ 	s   Á%2BÂ!CÂ;	CÃ	Cc              ƒ   ó
+  K  — 	 t          ddd¬¦  «        ƒ d {V —†}t          j        d¦  «         t           dd ¦  «        5 }|                     ¦   «         }|                     ¦   «         r0|                     |¦  «        ƒ d {V —† t          j        d¦  «         nt          j         d	¦  «         |                     ¦   «          d d d ¦  «         n
+# 1 swxY w Y   |S # t          $ r}t          j
+        d
+|› ¦  «         |‚d }~ww xY w)
+Nz9postgresql://postgres:mysecretpassword@localhost/postgresr;   é
+   )ÚdsnÚmax_sizeÚmin_sizezDatabase connection establishedz+C:\Users\pera\bleed\base\schema\schema.sqlrY   zDatabase schema loadedzDatabase schema file is emptyzError loading database: )
+r   r   r{   r[   ÚreadÚstripÚ executer|   Úcloser}   Úerror)rF   r%   ÚfileÚschemar€   s        rH   Ú_load_databasezBot._load_database…   st  è è € ğ	İ$ØOØØğ ñ ô ğ ğ ğ ğ ğ ğ ˆDõ
+ 
+ŒKĞ9Ñ:Ô:Ğ:åĞDÀcÑJÔJğ  
+ÈdØŸš™œØ—<’<‘>”>ğ DØŸ,š, vÑ.Ô.Ğ.Ğ.Ğ.Ğ.Ğ.Ğ.Ğ.İ”KĞ 8Ñ9Ô9Ğ9Ğ9å”NĞ#BÑCÔCĞCØ—
+’
+‘”ğ 
+ğ  
+ğ  
+ñ  
+ô  
+ğ  
+ğ  
+ğ  
+ğ  
+ğ  
+ğ  
+øøøğ  
+ğ  
+ğ  
+ğ  
+ğ ˆKøİğ 	ğ 	ğ 	İŒLĞ7°AĞ7Ğ7Ñ8Ô8Ğ8ØˆGøøøøğ	øøøs<   „<C Á BC
+ÃC Ã
+C ÃC ÃC ÃC Ã
+DÃ$C=Ã=Dc              ƒ   ó‚  •K  — |                       ¦   «         ƒ d {V —† t          j        ¦   «         | _        |                      d¦  «        ƒ d {V —† |                      ¦   «         ƒ d {V —†| _        | j                              ¦   «         ƒ d {V —† | j         | _	        t          ¦   «          
+                    ¦   «         ƒ d {V —†S )NÚ jishaku)r   r   Únowr&   rz   r   r%   r?   ÚinitÚ browserr<   Ú
+setup_hookrE   s    €rH   r”   zBot.setup_hookœ   sÜ   øè è € Ø×ÒÑ!Ô!Ğ!Ğ!Ğ!Ğ!Ğ!Ğ!Ğ!İ”L‘N”NˆŒ	Ø×!Ò! )Ñ,Ô,Ğ,Ğ,Ğ,Ğ,Ğ,Ğ,Ğ,Ø×-Ò-Ñ/Ô/Ğ/Ğ/Ğ/Ğ/Ğ/Ğ/ˆŒ	ØÔ"×'Ò'Ñ)Ô)Ğ)Ğ)Ğ)Ğ)Ğ)Ğ)Ğ)ØÔ+ˆŒå‘W”W×'Ò'Ñ)Ô)Ğ)Ğ)Ğ)Ğ)Ğ)Ğ)Ğ)rI   c                 óf   — |dk    r	|dz
+  d›dS |dk    r	|dz
+  d›dS |dk    r	|dz
+  d›d S |› dS )	z;
+        Convert bytes to a human-readable format.
+        i   @ú.2fÚGBi   ÚMBi   ÚKBz Bytesrb   )rF   Úbytess     rH   Ú
+format_sizezBot.format_size¦   s}   € ğ GÒ
+ğ  	$Ø˜yÑ)Ğ1Ğ1Ğ1Ğ1Ğ1Ø
+gÒ
+ğ 	$Ø˜yÑ)Ğ1Ğ1Ğ1Ğ1Ğ1Ø
+dŠ]ğ 	$Ø˜d‘lĞ*Ğ*Ğ*Ğ*Ğ*àĞ#Ğ#Ğ#Ğ#rI   Únumberc           
+      ód  — g d¢}t          t          |¦  «        dz
+  t          t          t           |¦  «        ¦  «        ¦  «        dz
+  dz  ¦  «        }d                     |dd|z  z  z
+  ¦  «                             d¦  «                             d ¦  «        }d                     |||         ¦  «        S )	N)rw   ÚkÚmÚbÚté   é   z{:.1f}rƒ   Ú0ru   z{}{})ÚminrZ   ÚstrÚabsÚformatÚrstrip)rF   rœ   ÚsuffixesÚ	magnitudeÚformatted_numbers        rH   Úhumanize_numberzBot.humanize_number³   s¡   € Ø+Ğ+Ğ+ˆİ˜H™
+œ
+¨Ñ)­CµµC¸±K´KÑ0@Ô0@Ñ,AÔ,AÀAÑ,EÈ!Ñ+KÑLÔLˆ	àOŠO˜F R¨A°	©MÑ%:Ñ:Ñ;Ô;×BÒBÀ3ÑGÔG×NÒNÈsÑSÔSğ 	ğ }Š}Ğ-¨x¸	Ô/BÑCÔCĞCrI   ©Úclsc             ƒ   óZ   •K  — t          ¦   «                              ||¬¦  «        ƒ d {V —†S )Nr®   )r<   Ú
+get_context)rF   ri   r¯   rG   s      €rH   r±   zBot.get_context»   s6   øè è € İ‘W”W×(Ò(¨°cĞ(Ñ:Ô:Ğ:Ğ:Ğ:Ğ:Ğ:Ğ:Ğ:rI   Ú
+start_timec                 ó
+  — t          t          j        ¦   «         |z
+  ¦  «        }d}g }|D ]E\  }}||z  } | r9|| |z  z  }|                     t           | ¦  «        › d|› | dk    rdnd› ¦  «         ŒFd                     |¦  «        S ) N))ÚyeariX…á)Úmonthir ( )Údayi€Q )Úhouri  )Úminuteé<   )Úsecondr¢   ú r¢   Úsrw   z, )r§   r@   ÚappendÚintÚjoin)rF   r²   Úuptime_secondsÚ	intervalsÚresultr3   ÚcountÚvalues           rH   rU   zBot.humanize_time¾   s©   € İTœY™[œ[¨:Ñ5Ñ6Ô6ˆğ 
+ˆ	ğ ˆØ$ğ 	Pğ 	P‰KˆD%Ø" eÑ+ˆEØğ 
+PØ %¨%¡-Ñ/Ø—
+’
+¥ U¡¤ĞNĞN¨dĞN¸5À1º9Ğ4L°C°CÈ"ĞNĞNÑOÔOĞOøàyŠy˜Ñ Ô Ğ rI   ÚctxÚ	exceptionc              ƒ   óF  K  — t          |¦  «        t          t          t          fv rd S t	          |t
+          ¦  «        r%|                     d|j         d›d¦  «        ƒ d {V —†S t	          |t          ¦  «        r*| 	                    d|j
+        d         › d¦  «        ƒ d {V —†S d S ) NzPlease wait **r–   z+ seconds** before using this command again.z You're **missing** permission: `r   ú`)
+Útyper   r   r   Ú
+isinstancer   ÚcooldownÚ
+retry_afterr   ÚwarnÚmissing_permissions)rF   rÅ   rÆ   s      rH   Úon_command_errorzBot.on_command_errorÒ   sÖ   è è € İ
+	‰?Œ?µ½,ĞGĞ
+Gğ  	ØˆFİ
+˜	Õ#4Ñ
+5Ô
+5ğ 	ØŸšĞ&}°yÔ7LĞ&}Ğ&}Ğ&}Ğ&}Ñ~Ô~Ğ~Ğ~Ğ~Ğ~Ğ~Ğ~Ğ~İ
+˜	Õ#5Ñ
+6Ô
+6ğ 	ØŸšØV°9Ô3PĞQRÔ3SĞVĞVĞVñô ğ ğ ğ ğ ğ ğ ğ 
+ğ	ğ 	rI   c              ƒ   óÈ   K  — |j         |j         k    rd S |j        j        rd S |                      |¦  «        ƒ d {V —†}|j        r|                      |¦  «        ƒ d {V —† d S d S rT   )Ú contentÚauthorÚbotr±   ÚvalidÚinvoke)rF   ÚbeforeÚafterrÅ   s       rH   Úon_message_editzBot.on_message_editÜ   s‘   è è € à
+Œ>˜Uœ]Ò
+*ğ 	ØˆFØ
+Œ<Ô
+ğ 	ØˆFà×$Ò$ UÑ+Ô+Ğ+Ğ+Ğ+Ğ+Ğ+Ğ+ˆØ
+Œ9ğ 	#Ø—+’+˜cÑ"Ô"Ğ"Ğ"Ğ"Ğ"Ğ"Ğ"Ğ"Ğ"Ğ"ğ	#ğ 	#rI   Úmemberc           	   ƒ   ó@  K  — 	 d}| j                              ||j        j        |j        |j        |j        t
+          j         ¦   «         ¦  «        ƒ d {V —† t          d|j        › d|j        › ¦  «         d S # t          $ r}t          d|› ¦  «         Y d }~d S d }~ww xY w)NaN  
+            INSERT INTO lost_boosters (guild_id, user_id, username, discriminator, lost_at)
+            VALUES ($1, $2, $3, $4, $5)
+            ON CONFLICT (user_id) DO UPDATE 
+            SET guild_id = EXCLUDED.guild_id, username = EXCLUDED.username, discriminator = EXCLUDED.discriminator, lost_at = EXCLUDED.lost_at;
+            zLogged lost boost for ú#zError logging lost boost: )
+r%   r‰   rk   rm   r3   Ú
+discriminatorr   ÚutcnowÚprintr}   )rF   rÙ   Úqueryr€   s       rH   Úlog_lost_boostzBot.log_lost_boostç   sÎ   è è € ğ
+	4ğˆEğ ”)×#Ò# E¨6¬<¬?¸F¼IÀvÄ{ĞTZÔThÕjrÔjyÑj{Ôj{Ñ|Ô|Ğ|Ğ|Ğ|Ğ|Ğ|Ğ|Ğ|İĞO¨6¬;ĞOĞO¸Ô9MĞOĞOÑPÔPĞPĞPĞPøİğ 	4ğ 	4ğ 	4İĞ2¨qĞ2Ğ2Ñ3Ô3Ğ3Ğ3Ğ3Ğ3Ğ3Ğ3Ğ3øøøøğ	4øøøs   „A0A6 Á6
+BÂ BÂBc              ƒ   óZ  ‡ ‡K  — |j         j        rd S ‰ j                             d|j         j        ¦  «        ƒ d {V —†}|rd S ‰                      |¦  «        ƒ d {V —†}|j                              t          |¦  «        ¦  «        sd S t          j	        ¦   «         Š|j         j        }ˆˆ fd„‰ j
+        |         D ¦   «         ‰ j
+        |<   ‰ j
+        |          
+                    ‰¦  «         |j                              t          |¦  «        ¦  «        r‰                      |¦  «        ƒ d {V —† d S d S )Nz*SELECT * FROM blacklist WHERE user_id = $1c                 ó0   •— g | ]}‰|z
+  ‰j         k     ¯|‘ŒS rb   )rD   )r^   Ú	timestampr‘   rF   s     €€rH   r`   z"Bot.on_message.<locals>.<listcomp>  s;   ø€ ğ )
+ğ )
+ğ )
+àØY‰ Ô!:Ò:ğ )
+Øğ)
+ğ )
+ğ )
+rI   )
+rÒ   rÓ   r%   Úfetchrowrm   ro   rÑ   Ú
+startswithÚtupler@   rC   r½   Úprocess_commands)rF   ri   ÚcheckÚprefixÚ	author_idr‘   s   `    @rH   Ú
+on_messagezBot.on_messageô   sm  øøè è € Ø
+Œ>Ô
+ğ 	ØˆFà”i×(Ò(Ø8¸'¼.Ô:Kñ
+ô 
+ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+ˆğ ğ 	ØˆFà—’ wÑ/Ô/Ğ/Ğ/Ğ/Ğ/Ğ/Ğ/ˆØŒ×)Ò)­%°©-¬-Ñ8Ô8ğ 	ØˆFåŒi‰kŒkˆØ”NÔ%ˆ	ğ)
+ğ )
+ğ )
+ğ )
+ğ )
+à!Ô/°	Ô:ğ)
+ñ )
+ô )
+ˆÔ˜9Ñ%ğ 	
+Ô˜9Ô%×,Ò,¨SÑ1Ô1Ğ1à
+Œ?×
+%Ò
+%¥e¨F¡m¤mÑ
+4Ô
+4ğ 	Ø×'Ò'¨ Ñ0Ô0Ğ0Ğ0Ğ0Ğ0Ğ0Ğ0Ğ0Ğ0Ğ0àˆFrI   c              ƒ   ó–   K  — t          j        |j        › d|j        j        › d|j        › d|j        › d|j        j        › d
+¦  «         d S )Nz (z
+) executed z in z).)r   r{   rÒ   rm   Ú commandrk   )rF   rÅ   s     rH   Ú
+on_commandzBot.on_command  sa   è è € İŒ
+ØŒzĞeĞe˜SœZœ]ĞeĞe°s´{ĞeĞeÈÌ	ĞeĞeĞUXÔU^ÔUaĞeĞeĞeñ	
+ô 	
+ğ 	
+ğ 	
+ğ 	
+rI   )r'   N)rp   )"Ú__name__Ú
+__module__Ú__qualname__r   Ú__annotations__r   r=   Úpropertyr¾   rN   rR   r¦   rV   rh   r   ræ   ro   r   r   r”   r›   r­   r    r±   ÚfloatrU   r   rÏ   rØ   r   rà   rë   rî   Ú
+__classcell__)rG   s   @rH   r$   r$   /   sn  ø€ € € € € € Ø
+€J€JJØ
+€N€NNğ'ğ 'ğ 'ğ 'ğ 'ğ 'ğ. ğ*cğ *ğ *ğ *ñ „Xğ*ğ ğ/ğ /ñ „Xğ/ğ ğ0˜ğ 0ğ 0ğ 0ñ „Xğ0ğ ğ
+
+˜3ğ 
+
+ğ 
+
+ğ 
+
+ñ „Xğ
+
+ğ
+,¨ ğ 
+,°Eğ 
+,ğ 
+,ğ 
+,ğ 
+,ğğ ¨Cğ ğ ğ ğ ğ* dğ ğ ğ ğ ğ.*ğ *ğ *ğ *ğ *ğ
+$ğ 
+$ğ 
+$ğD cğ D¨cğ Dğ Dğ Dğ Dğ :Ağ ;ğ ;ğ ;¨ğ ;ğ ;ğ ;ğ ;ğ ;ğ ;ğ!¨ğ !°#ğ !ğ !ğ !ğ !ğ(¨'ğ ¸lğ Ètğ ğ ğ ğ ğ	#ğ 	#ğ 	#ğ
+4¨6ğ 
+4ğ 
+4ğ 
+4ğ 
+4ğ¨ ğ °Dğ ğ ğ ğ ğ<
+ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+ğ 
+rI   r$   )/rg   Ú
+discord_iosÚosr@   re   Útypingr   r   r   Ú asyncpgr   Ú discordr    r   r	   r
+   r
+   r   r
+   r   Ú
+discord.utilsr   Údiscord.ext.commandsr   r   r   r   r   r   r   r   r   r   r   r   r   r   Úlogurur   r   Úbase.contextr    Úbase.managers.browserr!   Ú
+collectionsr"   r$   rb   rI   rH   ú<module>r     s#  ğØ 
+€
+€
+€
+Ø Ğ Ğ Ğ Ø 	€	€	€	Ø 
+€
+€
+€
+Ø €€€à Ğ Ğ Ğ Ğ Ğ Ğ Ğ Ø Ğ Ğ Ğ Ğ Ğ à Ğ Ğ Ğ Ğ Ğ ğ	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ 	ğ $Ğ #Ğ #Ğ #Ğ #Ğ #ğğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ ğ" Ğ Ğ Ğ Ğ Ğ Ø Ğ Ğ Ğ Ğ Ğ Ø  Ğ  Ğ  Ğ  Ğ  Ğ  Ø 0Ğ 0Ğ 0Ğ 0Ğ 0Ğ 0Ø #Ğ #Ğ #Ğ #Ğ #Ğ #ğf
+ğ f
+ğ f
+ğ f
+ğ f
+ˆ.ñ f
+ô f
+ğ f
+ğ f
+ğ f
+rI   
